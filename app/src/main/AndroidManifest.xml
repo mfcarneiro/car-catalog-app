@@ -3,6 +3,8 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="nero.com.carbook">
 	
+	<uses-permission android:name="android.permission.INTERNET"/>
+	
 	<application
 			android:name=".CarsApplication"
 			android:icon="@mipmap/ic_launcher"
@@ -11,7 +13,10 @@
 			android:supportsRtl="true"
 			android:theme="@style/AppTheme.NavDrawer"
 			tools:ignore="GoogleAppIndexingWarning">
-		
+		<activity
+				android:name=".activity.AboutActivity"
+				android:parentActivityName=".activity.MainActivity">
+		</activity>
 		<activity
 				android:name=".activity.CarsActivity"
 				android:parentActivityName=".activity.MainActivity">
@@ -19,7 +24,6 @@
 					android:name="android.support.PARENT_ACTIVITY"
 					android:value=".activity.MainActivity"/>
 		</activity>
-		
 		<activity
 				android:name=".activity.MainActivity"
 				android:theme="@style/AppTheme.NavDrawer">
