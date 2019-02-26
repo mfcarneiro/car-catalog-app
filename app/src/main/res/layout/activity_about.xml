@@ -10,18 +10,24 @@
 	
 	<include layout="@layout/toolbar"/>
 	
-	<FrameLayout
+	<android.support.v4.widget.SwipeRefreshLayout
+			android:id="@+id/swipeRefresh"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent">
-		<WebView
-				android:id="@+id/web_view"
+		
+		<FrameLayout
 				android:layout_width="match_parent"
-				android:layout_height="match_parent"/>
-		<ProgressBar
-				android:id="@+id/progress_bar"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="center"/>
-	</FrameLayout>
+				android:layout_height="match_parent">
+			<WebView
+					android:id="@+id/web_view"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"/>
+			<ProgressBar
+					android:id="@+id/progress_bar"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"/>
+		</FrameLayout>
+	</android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>

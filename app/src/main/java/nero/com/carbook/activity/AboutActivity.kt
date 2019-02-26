@@ -2,7 +2,9 @@ package nero.com.carbook.activity
 
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.support.v4.widget.SwipeRefreshLayout
 import android.view.View
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
@@ -14,6 +16,7 @@ class AboutActivity : BaseActivity() {
     private val ABOUT_URL = "http://www.livroandroid.com.br/sobre.htm"
     private var webview: WebView? = null
     private var progressBar: ProgressBar? = null
+    private var swipeToRefresh: SwipeRefreshLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +32,17 @@ class AboutActivity : BaseActivity() {
 //      Page loader
         setWebViewClient(webview)
         webview?.loadUrl(ABOUT_URL)
+
+//      Swipe to refresh
+        swipeToRefresh = findViewById(R.id.swipeRefresh)
+        swipeToRefresh?.setOnRefreshListener { webview?.reload() }
+
+//      Animation colors
+        swipeToRefresh?.setColorSchemeResources(
+            R.color.refresh_progress_1,
+            R.color.refresh_progress_2,
+            R.color.refresh_progress_3
+        )
     }
 
     private fun setWebViewClient(webview: WebView?) {
@@ -43,6 +57,7 @@ class AboutActivity : BaseActivity() {
                 super.onPageFinished(view, url)
 //              Stop progressBar
                 progressBar?.visibility = View.INVISIBLE
+                swipeToRefresh?.isRefreshing = false
             }
         }
     }
