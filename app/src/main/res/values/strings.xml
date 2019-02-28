@@ -7,6 +7,14 @@
 	<string name="action_salvar">Salvar</string>
 	<string name="action_deletar">Deletar</string>
 	<string name="about_dialog_title">Livro Android</string>
+	<string name="about_dialog_text">
+		<![CDATA[
+<b>Aplicativo dos Carros</b><br>
+Versao %s<br><br>
+<a href="http://www.livroandroid.com.br">http://livroandroid.com.br</a><br><br>
+<a href="http://www.facebook.com/ricardolecheta">http://facebook.com/ricardolecheta</a><br><br>
+<a href="https://plus.google.com/+RicardoLecheta">https://plus.google.com/+RicardoLecheta</a>
+	]]></string>
 	<!-- C -->
 	<string name="carros">Carros</string>
 	<string name="configuracoes">Configurações</string>

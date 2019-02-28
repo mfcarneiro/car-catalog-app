@@ -9,6 +9,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import nero.com.carbook.R
+import nero.com.carbook.activity.dialogs.AboutDialog
 import nero.com.carbook.extensions.setupToolbar
 
 class AboutActivity : BaseActivity() {
@@ -59,6 +60,17 @@ class AboutActivity : BaseActivity() {
                 progressBar?.visibility = View.INVISIBLE
                 swipeToRefresh?.isRefreshing = false
             }
+
+            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                val url = request?.url.toString()
+
+                if (url.endsWith("sobre.htm")) {
+                    AboutDialog.showAbout(supportFragmentManager)
+                }
+
+                return super.shouldOverrideUrlLoading(view, request)
+            }
+
         }
     }
 }
